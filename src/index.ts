@@ -14,13 +14,14 @@ if (root) {
 
 const workflow = github.context.workflow;
 
-if (workflow) {
-  core.exportVariable("PULUMI_CI_SYSTEM", "GitHub");
-  core.exportVariable("PULUMI_CI_BUILD_ID", "");
-  core.exportVariable("PULUMI_CI_BUILD_TYPE", "");
-  core.exportVariable("PULUMI_CI_BUILD_URL", "");
-  core.exportVariable("PULUMI_CI_PULL_REQUEST_SHA", github.context.sha);
-}
+// setting these vars at workflow yaml instead to avoid using deprecated 'set-env' command
+//if (workflow) {
+//  core.exportVariable("PULUMI_CI_SYSTEM", "GitHub");
+//  core.exportVariable("PULUMI_CI_BUILD_ID", "");
+//  core.exportVariable("PULUMI_CI_BUILD_TYPE", "");
+//  core.exportVariable("PULUMI_CI_BUILD_URL", "");
+//  core.exportVariable("PULUMI_CI_PULL_REQUEST_SHA", github.context.sha);
+//}
 
 const mode = core.getInput("mode");
 
